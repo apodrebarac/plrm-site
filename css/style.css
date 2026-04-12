@@ -193,21 +193,17 @@ p:last-child { margin-bottom: 0; }
 /* ── Works grid (index page) ── */
 .works-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2px;
   margin-top: 48px;
 }
 
 .work-card a {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+  display: block;
   background: var(--bg-raised);
   color: var(--text);
   transition: background 0.2s;
 }
-
-.work-card { display: flex; }
 
 .work-card a:hover { background: #1a1a1a; }
 
@@ -223,11 +219,6 @@ p:last-child { margin-bottom: 0; }
 
 .work-card-body {
   padding: 20px;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 110px;
 }
 
 .work-card-number {
