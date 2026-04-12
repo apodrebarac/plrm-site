@@ -198,8 +198,15 @@ p:last-child { margin-bottom: 0; }
   margin-top: 48px;
 }
 
+.work-card {
+  display: flex;
+}
+
 .work-card a {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
   background: var(--bg-raised);
   color: var(--text);
   transition: background 0.2s;
