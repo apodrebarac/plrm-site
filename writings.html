@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Writings — Anamarija Ami Podrebarac</title>
+  <meta name="description" content="Writing by Anamarija Ami Podrebarac.">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .post-list {
+      display: flex;
+      flex-direction: column;
+      margin-top: 48px;
+    }
+
+    .post-item {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: 28px 0;
+      border-bottom: 1px solid var(--line);
+      text-decoration: none;
+      color: var(--text);
+      transition: color 0.2s;
+    }
+
+    .post-item:first-child {
+      border-top: 1px solid var(--line);
+    }
+
+    .post-item:hover .post-title {
+      color: var(--accent-light);
+    }
+
+    .post-date {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--text-dim);
+      letter-spacing: 0.08em;
+    }
+
+    .post-title {
+      font-size: 22px;
+      color: var(--text-bright);
+      line-height: 1.3;
+      transition: color 0.2s;
+    }
+
+    .post-excerpt {
+      font-size: 17px;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    .post-tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="index.html" class="site-name"><span>//</span> PLRM</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Works</a></li>
+    <li><a href="writings.html" class="active">Writings</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="oath.html">Oath</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page">
+
+  <div class="fade-in">
+    <div class="label">Writings</div>
+    <h1>Writing</h1>
+    <p class="subtitle">Essays, reflections, and research notes</p>
+  </div>
+
+  <div class="post-list">
+
+    <!-- Placeholder post — replace with real content -->
+    <a class="post-item fade-in" href="posts/placeholder.html">
+      <span class="post-date">12 April 2026</span>
+      <span class="post-title">Placeholder — first post title goes here</span>
+      <span class="post-excerpt">A short excerpt or opening line from the post appears here — one or two sentences to draw the reader in.</span>
+      <span class="post-tag">Essay</span>
+    </a>
+
+    <!-- Add more posts here as you write them, newest first -->
+
+  </div>
+
+</div>
+
+<footer class="site-footer">
+  <p>&copy; 2025 &mdash; PLRM Research Archive &mdash; Anamarija Ami Podrebarac</p>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
