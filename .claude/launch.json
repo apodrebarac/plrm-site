@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "PLRM Site (Python)",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "5500", "--directory", "/Users/anamarijapodrebarac/Desktop/plrm-site"],
+      "port": 5500
+    },
+    {
+      "name": "PLRM Site (npx serve)",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["serve", "/Users/anamarijapodrebarac/Desktop/plrm-site", "-p", "5500", "-s"],
+      "port": 5500
+    }
+  ]
+}

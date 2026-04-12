@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>F0x / 0wl — Anamarija Ami Podrebarac</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .work-meta-block { display: flex; gap: 40px; flex-wrap: wrap; margin-bottom: 48px; padding-bottom: 32px; border-bottom: 1px solid var(--line); }
+    .work-meta-item { display: flex; flex-direction: column; gap: 4px; }
+    .work-meta-label { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); }
+    .work-meta-value { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--text-muted); }
+    .back-link { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-dim); display: inline-block; margin-bottom: 48px; }
+    .back-link:hover { color: var(--accent); }
+    .placeholder-gallery { background: var(--bg-raised); border: 1px dashed var(--line); padding: 40px; text-align: center; margin: 32px 0; font-family: 'DM Mono', monospace; font-size: 11px; color: var(--text-dim); letter-spacing: 0.06em; }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin: 32px 0; }
+    .model-block { background: var(--bg-raised); padding: 24px; border-top: 1px solid var(--line); }
+    .model-name { font-family: 'DM Mono', monospace; font-size: 22px; font-weight: 400; color: var(--accent); margin-bottom: 12px; }
+    .model-desc { font-size: 16px; line-height: 1.7; color: var(--text-muted); }
+    @media (max-width: 640px) { .two-col { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="../index.html" class="site-name"><span>//</span> PLRM</a>
+  <ul class="nav-links">
+    <li><a href="../index.html" class="active">Works</a></li>
+    <li><a href="../about.html">About</a></li>
+    <li><a href="../oath.html">Oath</a></li>
+    <li><a href="../contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page">
+
+  <a href="../index.html" class="back-link fade-in">&larr; All works</a>
+
+  <div class="fade-in">
+    <div class="label">Work 09</div>
+    <h1>F0x / 0wl</h1>
+  </div>
+
+  <div class="work-meta-block fade-in">
+    <div class="work-meta-item">
+      <span class="work-meta-label">Period</span>
+      <span class="work-meta-value">2018 &mdash; Ongoing</span>
+    </div>
+    <div class="work-meta-item">
+      <span class="work-meta-label">Medium</span>
+      <span class="work-meta-value">Recurrent Neural Networks, personal archives</span>
+    </div>
+    <div class="work-meta-item">
+      <span class="work-meta-label">Datasets</span>
+      <span class="work-meta-value">Grandfather's letters / Grandmother's writing</span>
+    </div>
+    <div class="work-meta-item">
+      <span class="work-meta-label">Status</span>
+      <span class="work-meta-value">Ongoing — models allowed to drift and collapse</span>
+    </div>
+  </div>
+
+  <p class="lead fade-in">Two recurrent neural networks trained on intimate personal archives — slow, fragile, trained on grief, and allowed to drift, collapse, and stammer.</p>
+
+  <div class="fade-in">
+
+    <div class="two-col">
+      <div class="model-block">
+        <div class="model-name">F0x</div>
+        <p class="model-desc">Trained on the tokenised handwritten letters of a grandfather, spanning his entire life. F0x generates text through recursive loops that resist coherence and closure — a language that reflects its own understanding of the world, informed by the essence of human experience embedded within its code. F0x ceased functioning in 2018.</p>
+      </div>
+      <div class="model-block">
+        <div class="model-name">0wl</div>
+        <p class="model-desc">Trained on a grandmother's writing and personal reflections. 0wl continues — its outputs feed into subsequent works including the barbed wire EMG performance and Performance 12. The delay between input and output, the willingness to let a model die rather than repair it: these are refusals of the logic of instant gratification.</p>
+      </div>
+    </div>
+
+    <p>These systems are slow, fragile, trained on grief. They are not optimised. They are allowed to drift, to collapse, to stammer. The logic of instant gratification demands repair — PLRM refuses it. The delay between input and output is itself a methodological position.</p>
+
+    <hr class="divider">
+
+    <h3>Masochistic framework</h3>
+
+    <p>Gilles Deleuze identifies masochism as a formal structure organised around waiting: the masochist experiences waiting in its pure form. What is awaited is always deferred, while pain functions as the condition making pleasure possible. In RNN practice, this structural requirement is suspended. The machine requires no education into coldness. Its coldness is constitutive rather than cultivated — what Deleuze describes as "the disavowal of sensuality": a generative condition of transformation rather than an absence of relation.</p>
+
+    <p>The masochistic contract is held entirely on one side. The RNN cannot doubt its role, cannot threaten to overplay or fall short of expectations. This positions the RNN as a participant in an affective encounter that destabilises traditional notions of authorship and self.</p>
+
+    <hr class="divider">
+
+    <h3>Documentation</h3>
+  </div>
+
+  <div class="placeholder-gallery fade-in">
+    [ image gallery — add images to images/fox-owl/ and replace this block ]
+  </div>
+
+</div>
+
+<footer class="site-footer">
+  <p>&copy; 2025 &mdash; PLRM Research Archive &mdash; Anamarija Ami Podrebarac</p>
+</footer>
+
+<div class="lightbox" role="dialog" aria-modal="true">
+  <span class="lightbox-close" aria-label="Close">[ close ]</span>
+  <img src="" alt="">
+</div>
+
+<script src="../js/main.js"></script>
+</body>
+</html>
