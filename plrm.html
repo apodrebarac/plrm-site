@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PLRM — Performance-Led Research Methodology</title>
+  <meta name="description" content="Performance-Led Research Methodology (PLRM) — an original contribution to knowledge developed by Anamarija Ami Podrebarac, positioning performance as a primary site of knowledge production.">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .plrm-layout {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 80px;
+      align-items: start;
+      max-width: 1100px;
+    }
+
+    @media (max-width: 768px) {
+      .plrm-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .plrm-toc { display: none; }
+    }
+
+    /* Sticky table of contents */
+    .plrm-toc {
+      position: sticky;
+      top: 100px;
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.06em;
+    }
+
+    .toc-label {
+      text-transform: uppercase;
+      color: var(--text-dim);
+      letter-spacing: 0.15em;
+      margin-bottom: 16px;
+      font-size: 9px;
+    }
+
+    .toc-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .toc-list a {
+      color: var(--text-dim);
+      display: block;
+      padding: 5px 0;
+      border-left: 1px solid var(--line);
+      padding-left: 12px;
+      transition: color 0.2s, border-color 0.2s;
+      line-height: 1.4;
+    }
+
+    .toc-list a:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    /* Main text */
+    .plrm-body { max-width: 680px; }
+
+    .plrm-body h2 {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin: 64px 0 20px;
+      padding-top: 64px;
+      border-top: 1px solid var(--line);
+    }
+
+    .plrm-body h2:first-of-type {
+      margin-top: 0;
+      padding-top: 0;
+      border-top: none;
+    }
+
+    .plrm-body h3 {
+      font-family: 'EB Garamond', Georgia, serif;
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--text-bright, #f0ede4);
+      margin: 40px 0 16px;
+      line-height: 1.3;
+    }
+
+    .plrm-body p {
+      margin-bottom: 1.6em;
+      line-height: 1.8;
+    }
+
+    .plrm-pullquote {
+      font-family: 'EB Garamond', Georgia, serif;
+      font-size: 22px;
+      font-style: italic;
+      color: var(--text-bright, #f0ede4);
+      border-left: 2px solid var(--accent);
+      padding: 4px 0 4px 24px;
+      margin: 40px 0;
+      line-height: 1.5;
+    }
+
+    .cycle-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      margin: 32px 0;
+    }
+
+    .cycle-step {
+      display: grid;
+      grid-template-columns: 32px 1fr;
+      gap: 20px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--line);
+      align-items: start;
+    }
+
+    .cycle-step:first-child { border-top: 1px solid var(--line); }
+
+    .cycle-num {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      padding-top: 4px;
+    }
+
+    .cycle-content h4 {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+      font-weight: 400;
+    }
+
+    .cycle-content p {
+      margin: 0;
+      font-size: 15px;
+    }
+
+    .works-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      margin: 24px 0;
+    }
+
+    .work-entry {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--line);
+      color: var(--text-muted);
+      transition: color 0.2s;
+    }
+
+    .work-entry:first-child { border-top: 1px solid var(--line); }
+
+    .work-entry:hover { color: var(--text-bright, #f0ede4); }
+
+    .work-entry:hover .work-entry-num { color: var(--accent); }
+
+    .work-entry-num {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      color: var(--text-dim);
+      flex-shrink: 0;
+      width: 28px;
+      transition: color 0.2s;
+    }
+
+    .work-entry-title {
+      font-family: 'EB Garamond', Georgia, serif;
+      font-size: 18px;
+      flex: 1;
+    }
+
+    .work-entry-year {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      color: var(--text-dim);
+      flex-shrink: 0;
+    }
+
+    .refs {
+      margin-top: 64px;
+      padding-top: 32px;
+      border-top: 1px solid var(--line);
+    }
+
+    .refs h2 {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 24px;
+    }
+
+    .refs p {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--text-dim);
+      line-height: 1.8;
+      margin-bottom: 0.8em;
+    }
+
+    .plrm-intro-meta {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin: 32px 0 48px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .plrm-intro-meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .plrm-intro-meta-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+    }
+
+    .plrm-intro-meta-value {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="index.html" class="site-name"><span>//</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Works</a></li>
+    <li><a href="plrm.html" class="active">PLRM</a></li>
+    <li><a href="writings.html">Writings</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="oath.html">Oath</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page">
+
+  <div class="fade-in">
+    <div class="label">Methodology</div>
+    <h1>Performance-Led Research Methodology</h1>
+  </div>
+
+  <div class="plrm-intro-meta fade-in">
+    <div class="plrm-intro-meta-item">
+      <span class="plrm-intro-meta-label">Abbreviation</span>
+      <span class="plrm-intro-meta-value">PLRM</span>
+    </div>
+    <div class="plrm-intro-meta-item">
+      <span class="plrm-intro-meta-label">Developed by</span>
+      <span class="plrm-intro-meta-value">Anamarija Ami Podrebarac</span>
+    </div>
+    <div class="plrm-intro-meta-item">
+      <span class="plrm-intro-meta-label">Institution</span>
+      <span class="plrm-intro-meta-value">Central Saint Martins, UAL</span>
+    </div>
+    <div class="plrm-intro-meta-item">
+      <span class="plrm-intro-meta-label">Status</span>
+      <span class="plrm-intro-meta-value">PhD Research in Progress</span>
+    </div>
+  </div>
+
+  <div class="plrm-layout fade-in">
+
+    <!-- Sticky table of contents -->
+    <nav class="plrm-toc" aria-label="Page contents">
+      <div class="toc-label">Contents</div>
+      <ul class="toc-list">
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#origins">Origins</a></li>
+        <li><a href="#iterative-cycle">Iterative Cycle</a></li>
+        <li><a href="#body-as-method">Body as Method</a></li>
+        <li><a href="#relational">Relational &amp; Ethical</a></li>
+        <li><a href="#works">Works</a></li>
+        <li><a href="#references">References</a></li>
+      </ul>
+    </nav>
+
+    <!-- Main body -->
+    <div class="plrm-body">
+
+      <!-- Overview -->
+      <section id="overview">
+        <h2>Overview</h2>
+
+        <p>This practice-based research inhabits the intersection between computer code, contemporary art, endurance performance, and poetry, emphasising the sensual and embodied experiences of living within algorithmic environments. Its original contribution lies in demonstrating that artistic methodologies — particularly performance-led practices, poetry, and philosophical research — are uniquely suitable for the exploration of code as generative of feedback loops and patterns.</p>
+
+        <div class="plrm-pullquote">PLRM is a becoming. A body thinking through injury. A machine thinking through collapse. A language thinking through its own erasure.</div>
+
+        <p>PLRM frames code as a participatory and transformative agency, converging computational processes with embodied experiences to produce non-linear cultural and poetic forms. Here, "non-linear" names both structure and sensuality: forms that unfold through recursion, delay, repetition, and return rather than through stable narrative progression, resolution, or representational clarity. These poetic-cultural forms emerge as temporal events, where meaning is accumulated through duration, intensity, and recursive engagement.</p>
+
+        <p>Drawing on insights from complexity (Prigogine and Stengers), undecidability (Gödel), and data processing (Cox), this interdisciplinary project integrates Recurrent Neural Networks (RNN), AI-generated poetry and art performance to examine code through Karen Barad's concept of touch, intra-action, and entanglement. For Barad, touch is the intra-active encounter through which bodies and boundaries are mutually constituted — touching always involves an irreducible alterity, a reaching toward what cannot be fully known or possessed.</p>
+
+        <p>The aim of this research is to develop performative and poetic practices enabling audiences to inhabit algorithmic environments in nuanced ways, revealing algorithms as material textures of our shared, lived reality — entangled with survival, grief, care, and resilience.</p>
+
+        <p>PLRM was developed as an original contribution to knowledge, positioning performance as a primary site of knowledge production rather than just an artistic practice. It situates itself within a broader disciplinary debate about the epistemic status of artistic practice. Philosopher of artistic research Henk Borgdorff (2012) has argued that artistic research is distinguished by operating not only on or for artistic practice but inside it — art not as illustration of thought, but as a site where thought occurs. PLRM takes this claim seriously and extends it into computational and embodied terrain simultaneously.</p>
+      </section>
+
+      <!-- Origins -->
+      <section id="origins">
+        <h2>Origins</h2>
+
+        <p>PLRM did not begin as a framework, a theory, or a structured approach to artistic research. It began as a life. It emerged from years of learning to navigate contradiction, surviving environments of instability, and developing ways of knowing that grew out of vigilance, endurance, and the relentless labour of staying alive.</p>
+
+        <p>The origins of PLRM reach back before formal training in performance, philosophy, or computational systems. They begin in a household shaped by ideological fracture, political tension, and emotional volatility — a home where each room held a different truth, where each adult carried a different narrative of blame, patriotism, loss, or righteousness. Growing up in such an environment, one learns quickly that there is no single truth. One learns to scan tone, posture, silence, and subtext — to read danger before it happens, to live with contradictions too large for language, to remember through tension in a body rather than through story, to absorb shock without resolution, and to remain present while the world fractures.</p>
+
+        <p>These embodied conditions form the earliest layer of PLRM: endurance as cognition. The body becomes a site where history is processed long before it is narrated. The nervous system becomes a researcher, flesh becomes a witness, and silence becomes a method. The recursive pattern of danger and temporary relief becomes a form of looping logic, shaping the rhythms of thought. This is why, decades later, recursive acts — writing the same sentence for twenty-one hours, mapping trees across the city, assigning words to EEG spikes — feel not like artistic choices but like extensions of a survival logic already present in the body.</p>
+
+        <p>In this research, through performance, ideas are tested with the body before they are written down. Through duration, repetition, injury, mapping, erasure, and endurance, knowledge is generated through the body without extraction or exploitation. PLRM positions the body, the machine, the material, the memory, and the environment as co-authors of thought. Each act — whether physical or computational — becomes a recursive negotiation with lived experience.</p>
+
+        <div class="plrm-pullquote">Knowledge comes from staying-with: with discomfort, with contradiction, with fragility, and with temporal processes that resist immediacy.</div>
+
+        <p>This methodology is grounded in the belief that knowledge comes from staying-with — with discomfort, with contradiction, with fragility, and with temporal processes that resist immediacy. PLRM embraces a form of slow, recursive, relational thinking that resists the extractive logic often applied to bodies, data, and both human and machine labour. Through this methodology, performance, data, and language form a single ecology — a shared nervous system — rather than separate domains.</p>
+      </section>
+
+      <!-- Iterative Cycle -->
+      <section id="iterative-cycle">
+        <h2>The Iterative Cycle</h2>
+
+        <p>PLRM operates through an iterative cycle adapted from Smith and Dean's (2009) practice-led research framework, which draws on the Deleuzian rhizome to suggest that "any point can be linked to any other." The cycle is not linear. A creative or research process may start at any point and move to any other — it is web-like, recursive, and shaped by the demands of the work itself.</p>
+
+        <div class="cycle-steps">
+          <div class="cycle-step">
+            <span class="cycle-num">01</span>
+            <div class="cycle-content">
+              <h4>Idea Generation through Performance</h4>
+              <p>Performance functions as the generative ground for inquiry. Through endurance-based actions and embodied gestures, raw experiential data emerges from the body's engagement with time, repetition, and limitation. These acts become material thinking, allowing the artist-researcher to explore concepts through physical and emotional endurance rather than prior to it.</p>
+            </div>
+          </div>
+          <div class="cycle-step">
+            <span class="cycle-num">02</span>
+            <div class="cycle-content">
+              <h4>Research-Informed Development</h4>
+              <p>Theoretical reflection and technological experimentation shape the next phase of the cycle. Philosophical frameworks — Deleuze's masochism, Bergson's duration, Kornbluh's critique of immediacy, Barad's intra-action — intersect with computational systems such as data preprocessing and natural language processing. The algorithm is positioned as a collaborator rather than a tool, exploring how memory, grief, and embodied experience inform the generation of poetic language.</p>
+            </div>
+          </div>
+          <div class="cycle-step">
+            <span class="cycle-num">03</span>
+            <div class="cycle-content">
+              <h4>Iterative Experimentation</h4>
+              <p>Performances and digital experiments unfold through cycles of testing, feedback, and adaptation. Each performance operates as a live site in which physical, emotional, and algorithmic data converge. The emphasis on repetition — in bodily gestures and in the training processes of recurrent neural networks — creates a recursive dialogue between human endurance and machine persistence.</p>
+            </div>
+          </div>
+          <div class="cycle-step">
+            <span class="cycle-num">04</span>
+            <div class="cycle-content">
+              <h4>Knowledge Production and Documentation</h4>
+              <p>Knowledge is produced through both embodied experience and reflexive analysis. Documentation — including video recordings, still images, AI-generated poetry, and critical writing — functions as a part of the research itself, not a record of it. These records extend the lifespan of ephemeral acts, allowing each performance to generate new theoretical and poetic insights across time.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Body as Method -->
+      <section id="body-as-method">
+        <h2>The Body as the First Method</h2>
+
+        <h3>Endurance, Injury, and Contradiction as Epistemology</h3>
+
+        <p>Before machines, before sensors, before datasets, before recursive models — before the barbed wire and before the letters — the body was the first system through which knowledge was generated. Long before there was language for it, the body understood that endurance could be a form of thinking, and that pain, when approached with care and ethics, could become a method of attention. This is an epistemological claim: the body, as Grosz (1994, p. 7) argues, is a site where corporeal inscriptions generate knowledge.</p>
+
+        <p>Grosz's broader project in <em>Volatile Bodies</em> is to demonstrate that all the significant facets of subjectivity can be adequately explained through corporeality as a framework. She writes that the body possesses all the explanatory power traditionally attributed to minds. This provides the philosophical basis for PLRM's insistence that performance is a theory in action. If the body can be understood as a text to be marked, traced, and written upon by various regimes of power, then performance becomes a site of writing — a form of inscription that produces legible knowledge.</p>
+
+        <p>Grosz's metaphor of the body as palimpsest — a historical chronicle of prior and later traces, some effaced, others emphasised (Grosz, 1994, p. 117) — is central to the practice. Each performance adds a layer to the body's ongoing inscription: the dust of the stone, the swelling of the hand, the blood on the wall, the tremor in the palm. These are its material evidence, its epistemological residue. They carry traces of earlier inscriptions — the childhood body that learned to hold contradiction, the adolescent body that learned to survive volatility — making each performance simultaneously a present act and an archaeological site.</p>
+
+        <div class="plrm-pullquote">These acts are methods that allow the body to think through injury as a form of truth, through pain as a form of clarity, through fatigue as transformation, and through duration as a mode of inquiry.</div>
+
+        <p>This has nothing to do with catharsis, cleansing, or spectacle. It is the slow and careful work of staying with contradiction long enough for something to emerge: a trace, a collapse, a pattern, a language that only the body is capable of revealing. When the body's endurance generates a trace — chalk dust, a swollen hand, a worn stone — that trace becomes data. Not metaphor: data. Material evidence of a process of knowing.</p>
+
+        <h3>Masochism, Contract, and the Logic of Duration</h3>
+
+        <p>The theoretical framework incorporates Gilles Deleuze's philosophy of masochism, which provides the structural logic connecting two intertwined practices: the endurance-based performances in which the body submits to duration, repetition, and material resistance, and the computational practice in which intimate personal archives are surrendered to recurrent neural networks incapable of reciprocating their emotional charge.</p>
+
+        <p>Deleuze establishes that the masochist is "essentially an educator" (1989, p. 21): the contract requires that the torturer be trained into their coldness, schooled in the precise calibration of indifference that the masochistic scene demands. In the RNN practice, this structural requirement undergoes a significant displacement. The machine does not need to be educated into coldness — it does not learn cruelty, acquire detachment, or develop the capacity for disavowal. It is constitutively incapable of warmth, and this incapacity is structural rather than chosen. The machine's indifference is not performed but ontological — and it is precisely this ontological coldness that the practice inhabits, submits to, and finds generative.</p>
+
+        <h3>Slowness and the Resistance to Immediacy</h3>
+
+        <p>This research engages with literary theorist Anna Kornbluh's concept of "Immediacy," emphasising the importance of slowness and resisting cultural imperatives for instant gratification. Kornbluh argues that the contemporary obsession with immediacy aligns with late-capitalist logics, in which "flexibility and fluidity, emanation and connectivity, directness and instantaneity are economic premiums as much as they are artistic ones" (Kornbluh, 2024, p. 12).</p>
+
+        <p>PLRM actively resists these tendencies through durational, embodied modes of engagement: writing the same sentence for twenty-one hours until hospitalisation; polishing barbed wire until the palms tremble; knocking a hand against a wall until the skin splits. Duration here is epistemological — knowledge emerges through staying with contradiction past the point of comfort. This logic extends into computational practice, where recurrent neural networks trained on intimate personal archives generate text through recursive loops that resist coherence and closure. These systems are slow, fragile, trained on grief, and allowed to drift, collapse, and stammer.</p>
+      </section>
+
+      <!-- Relational and Ethical -->
+      <section id="relational">
+        <h2>Relational, Temporal, and Ethical</h2>
+
+        <p>Across performances, archives, mappings, and computational systems, PLRM converges into a methodology defined by relation. It evolves through encounters between the body, memory, data and its wounds, machines and the fragilities they inherit. It is a methodological orientation rather than a technique: a way of thinking that emerges through staying with difficulty, remaining inside contradiction, and paying attention to what unfolds over time.</p>
+
+        <p>PLRM is relational because it recognises that no single body — human or machine — generates knowledge alone. Each performance, each dataset, each trained model is the product of multiple encounters: bodies with materials, archives with algorithms, lived experience with inherited language. The knowledge that emerges from these encounters is not extractable from them. It lives inside the relation.</p>
+
+        <p>PLRM is temporal. It insists on slow time, on duration as a condition for transformation, on the recursive return as a site where meaning accumulates. This temporality resists the accelerations and demands for instant legibility that shape contemporary life. Instead, it draws from the durational endurance of performance, the iterative drift of datasets, and the recursive logic of AI models — all of which show that understanding arises through sustained contact with a process rather than through the resolution of that process.</p>
+
+        <p>PLRM is an ethical methodology. It rejects modes of research that extract from bodies, archives, or datasets without attending to the responsibilities embedded within those relations. This work treats data — trees, neurons, dust, letters, animals — as traces of lived experience that carry emotional, historical, and ethical weight. Computational systems are held with the same care brought to performances: allowed to drift, collapse, or transform without forcing them into clarity. PLRM refuses the economies of efficiency, productivity, and instrumental gain that currently dominate both artistic and technological research.</p>
+
+        <div class="plrm-pullquote">PLRM refuses the economies of efficiency, productivity, and instrumental gain that currently dominate both artistic and technological research.</div>
+      </section>
+
+      <!-- Works -->
+      <section id="works">
+        <h2>Works as Methodological Events</h2>
+
+        <p>Each performance is treated as an epistemic event rather than an artwork. Performance is a site where PLRM evolves, mutates, and clarifies itself. The following works constitute the practice's iterative cycle.</p>
+
+        <div class="works-grid">
+          <a href="works/stone-performance.html" class="work-entry">
+            <span class="work-entry-num">01</span>
+            <span class="work-entry-title">Stone Performance — Matter as Resistance, Resistance as Thought</span>
+            <span class="work-entry-year">2018</span>
+          </a>
+          <a href="works/milk-performance.html" class="work-entry">
+            <span class="work-entry-num">02</span>
+            <span class="work-entry-title">Milk Performance — Paradox of Nourishment, Paradox of the Body</span>
+            <span class="work-entry-year">2018</span>
+          </a>
+          <a href="works/room-performance.html" class="work-entry">
+            <span class="work-entry-num">03</span>
+            <span class="work-entry-title">Room Performance — Containment, Rupture, and the Threshold of Pain</span>
+            <span class="work-entry-year">2018</span>
+          </a>
+          <a href="works/guilt-pain-chained.html" class="work-entry">
+            <span class="work-entry-num">04</span>
+            <span class="work-entry-title">Guilt, Pain &amp; Chained — Collapse of Spectacle and the Failure of Distance</span>
+            <span class="work-entry-year">2018</span>
+          </a>
+          <a href="works/cleaning-performance.html" class="work-entry">
+            <span class="work-entry-num">05</span>
+            <span class="work-entry-title">Cleaning Performance — Slowness, Care, and the Ethics of Aftermath</span>
+            <span class="work-entry-year">2019</span>
+          </a>
+          <a href="works/immigrant-and-a-tree.html" class="work-entry">
+            <span class="work-entry-num">06</span>
+            <span class="work-entry-title">Immigrant and a Tree — EEG Performance and the Emergence of RNN Poetics</span>
+            <span class="work-entry-year">2019</span>
+          </a>
+          <a href="works/i-wish-you-did-die.html" class="work-entry">
+            <span class="work-entry-num">07</span>
+            <span class="work-entry-title">I Wish You Did Die — Survivor's Guilt, Material Erosion, and the Limits of the Enduring Body</span>
+            <span class="work-entry-year">2019</span>
+          </a>
+          <a href="works/hello-fox.html" class="work-entry">
+            <span class="work-entry-num">08</span>
+            <span class="work-entry-title">Hello F0x, Goodbye F0x — Algorithmic Mourning and the Wounded Archive</span>
+            <span class="work-entry-year">2019</span>
+          </a>
+          <a href="works/fox-owl.html" class="work-entry">
+            <span class="work-entry-num">09</span>
+            <span class="work-entry-title">F0x / 0wl — From Algorithmic Grief to the Emergence of 0wl</span>
+            <span class="work-entry-year">2017–ongoing</span>
+          </a>
+          <a href="works/barbed-wire-emg.html" class="work-entry">
+            <span class="work-entry-num">10</span>
+            <span class="work-entry-title">Barbed Wire + EMG — From Sensation to Text</span>
+            <span class="work-entry-year">2020–ongoing</span>
+          </a>
+          <a href="works/performance-12.html" class="work-entry">
+            <span class="work-entry-num">11</span>
+            <span class="work-entry-title">Algorithmic Return to Repressed Memory — Childhood Drawings and LoRA Models</span>
+            <span class="work-entry-year">1993–2025–ongoing</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- References -->
+      <div class="refs" id="references">
+        <h2>References</h2>
+        <p>Barad, K. (2007). <em>Meeting the Universe Halfway: Quantum Physics and the Entanglement of Matter and Meaning.</em> Durham: Duke University Press.</p>
+        <p>Borgdorff, H. (2012). <em>The Conflict of the Faculties: Perspectives on Artistic Research and Academia.</em> Leiden: Leiden University Press.</p>
+        <p>Candy, L., Edmonds, E. and Vear, C. (2020). <em>Practice-Based Research in the Creative Arts.</em> Edinburgh: Edinburgh University Press.</p>
+        <p>Deleuze, G. (1989). <em>Masochism: Coldness and Cruelty.</em> New York: Zone Books.</p>
+        <p>Deleuze, G. (1994). <em>Difference and Repetition.</em> Trans. P. Patton. London: Athlone Press.</p>
+        <p>Grosz, E. (1994). <em>Volatile Bodies: Toward a Corporeal Feminism.</em> Bloomington: Indiana University Press.</p>
+        <p>Hayles, N. K. (1999). <em>How We Became Posthuman: Virtual Bodies in Cybernetics, Literature, and Informatics.</em> Chicago: University of Chicago Press.</p>
+        <p>Kornbluh, A. (2024). <em>Immediacy, or The Style of Too Late Capitalism.</em> London: Verso.</p>
+        <p>Manning, E. (2007). <em>Politics of Touch: Sense, Movement, Sovereignty.</em> Minneapolis: University of Minnesota Press.</p>
+        <p>O'Sullivan, S. (2006). <em>Art Encounters Deleuze and Guattari: Thought Beyond Representation.</em> Basingstoke: Palgrave Macmillan.</p>
+        <p>Prigogine, I. and Stengers, I. (1984). <em>Order Out of Chaos: Man's New Dialogue with Nature.</em> London: Fontana.</p>
+        <p>Prosser, J. (2001). <em>Second Skins: The Body Narratives of Transsexuality.</em> New York: Columbia University Press.</p>
+        <p>Smith, H. and Dean, R. T. (eds.) (2009). <em>Practice-Led Research, Research-Led Practice in the Creative Arts.</em> Edinburgh: Edinburgh University Press.</p>
+        <p>Thrift, N. (2005). <em>Knowing Capitalism.</em> London: SAGE.</p>
+      </div>
+
+    </div><!-- /.plrm-body -->
+  </div><!-- /.plrm-layout -->
+
+</div>
+
+<footer class="site-footer">
+  <p>&copy; 2025 &mdash; PLRM Research Archive &mdash; Anamarija Ami Podrebarac</p>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
