@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Performance 12 — Anamarija Ami Podrebarac</title>
+  <title>Algorithmic Return to Repressed Memory — Anamarija Ami Podrebarac</title>
   <link rel="stylesheet" href="../css/style.css">
   <style>
     .work-meta-block { display: flex; gap: 40px; flex-wrap: wrap; margin-bottom: 48px; padding-bottom: 32px; border-bottom: 1px solid var(--line); }
@@ -43,79 +43,43 @@
   <a href="../index.html" class="back-link fade-in">&larr; All works</a>
 
   <div class="fade-in">
-    <div class="label">Work 11 &mdash; Performance 12</div>
-    <h1>Childhood Drawings, LoRA Models, and the Algorithmic Return to Repressed Memory</h1>
+    <div class="label">Work 11</div>
+    <h1>Algorithmic Return to Repressed Memory</h1>
   </div>
 
   <div class="work-meta-block fade-in">
     <div class="work-meta-item">
-      <span class="work-meta-label">Period</span>
-      <span class="work-meta-value">1993&ndash;1997 (drawings) / 2024&ndash;2025 (computational)</span>
-    </div>
-    <div class="work-meta-item">
-      <span class="work-meta-label">Origin</span>
-      <span class="work-meta-value">Karlovac, Croatia (war period)</span>
+      <span class="work-meta-label">Year</span>
+      <span class="work-meta-value">1993 &ndash; 2025 &ndash; ongoing</span>
     </div>
     <div class="work-meta-item">
       <span class="work-meta-label">Medium</span>
-      <span class="work-meta-value">LoRA models, ComfyUI, Stable Diffusion, 0wl dataset</span>
+      <span class="work-meta-value">LoRA models, ComfyUI, image generation, childhood drawings, personal archive</span>
     </div>
     <div class="work-meta-item">
-      <span class="work-meta-label">Status</span>
-      <span class="work-meta-value">Ongoing</span>
+      <span class="work-meta-label">Subtitle</span>
+      <span class="work-meta-value">Childhood Drawings, LoRA Models, and the Algorithmic Return to Repressed Memory</span>
+    </div>
+    <div class="work-meta-item">
+      <span class="work-meta-label">Documentation</span>
+      <span class="work-meta-value">Author</span>
     </div>
   </div>
 
-  <p class="lead fade-in">Childhood drawings made during wartime in Karlovac, 1993–1997 — used to train LoRA models that reconfigure repressed visual memory through computational synthesis.</p>
+  <p class="lead fade-in">Drawings I had no memory of making. A machine trained to remember them for me.</p>
 
   <div class="fade-in">
-    <p>Performance 12 is held at the level of process, not presented as finished work. It begins with two distinct datasets carrying fundamentally different visual registers: childhood drawings from Karlovac made during the war years of 1993–1997, and personal photographs spanning a lifetime. The drawings encode a child's perceptual processing of violence — bright colours, cheerful compositional logic sitting alongside bombs and planes, the impossible happiness of a child's mark-making during siege. The photographs carry the documentary register of an actual life.</p>
+    <p>This work began with a physical and emotional encounter: cleaning my grandparents' house and discovering my childhood drawings — images I had no conscious memory of making. These drawings, created when I was living inside a war zone, revealed a perceptual world shaped by instability and contradiction. The cheerful colours and naive forms did not match the conditions under which they were made. They were, I came to understand, a child's encoding of survival — a visual grammar formed before language could carry what the body knew.</p>
 
-    <p>Each dataset trains a separate LoRA model — low-rank matrices that adapt specific parameters of a base Stable Diffusion checkpoint, learning the visual grammar of their source material as a modular patch. The drawings LoRA learns the colour palette, line quality, and compositional logic of a wartime childhood. The photographs LoRA learns the documentary register.</p>
+    <p>I created two LoRA models: one trained on my personal collection of photographs across my life, and one trained on the rediscovered childhood drawings. Feeding these models into one another using prompts drawn from the 0wl dataset — grandmother's letters and RNN-generated poetic fragments — I generated new images that merge memory, displacement, and the visual logic of a child who did not yet know she was living through something that would stay with her. The outputs are not illustrations of memory. They are its algorithmic return: the machine reconstructing, from fragments of a life, something that neither the drawings nor the photographs could produce alone.</p>
 
-    <hr class="divider">
-
-    <h3>Datasets</h3>
-
-    <div class="dataset-grid">
-      <div class="dataset-block">
-        <div class="dataset-name">Childhood Drawings</div>
-        <p class="dataset-desc">Crayon and marker drawings made in Karlovac, Croatia, 1993–1997. Scanned at high resolution. The paper texture, colour palette, and gestural quality are what the LoRA learns — the child's perceptual encoding of wartime as visual grammar.</p>
-      </div>
-      <div class="dataset-block">
-        <div class="dataset-name">Personal Photographs</div>
-        <p class="dataset-desc">A curated selection of photographs spanning the lifetime of the artist. The photographic LoRA carries the documentary register — realism against which the drawings' impossible cheerfulness can collide.</p>
-      </div>
-    </div>
+    <p>This work is not treated as a finished artwork but as research in process. The LoRA strength ratios are adjusted continuously — pushing toward the drawings' colour palette or pulling toward photographic realism, finding the uncanny space between them. The algorithm reconfigures impossible childhood scenes, exposing how perception was shaped by contradiction and how memory is not stored but generated.</p>
 
     <hr class="divider">
 
-    <h3>ComfyUI pipeline</h3>
+    <h3>Methodological significance</h3>
 
-    <div class="pipeline">
-      <div class="pipeline-step">
-        <span class="pipeline-num">01</span>
-        <span class="pipeline-text">Both LoRA models are chained via Load LoRA nodes onto a base Stable Diffusion / FLUX checkpoint</span>
-      </div>
-      <div class="pipeline-step">
-        <span class="pipeline-num">02</span>
-        <span class="pipeline-text">Prompts drawn from the 0wl dataset — grandmother's letters and RNN-generated poetic fragments — are fed through the CLIP text encoder</span>
-      </div>
-      <div class="pipeline-step">
-        <span class="pipeline-num">03</span>
-        <span class="pipeline-text">The language of grief and memory literally becomes the compositional instruction that steers what the visual models produce</span>
-      </div>
-      <div class="pipeline-step">
-        <span class="pipeline-num">04</span>
-        <span class="pipeline-text">KSampler denoises and VAE decodes the latent — producing images where the child's visual logic and photographic realism collide in the uncanny space between them</span>
-      </div>
-    </div>
-
-    <hr class="divider">
-
-    <h3>Why this is process, not product</h3>
-
-    <p>The work refuses the logic of the finished image. The LoRA strength ratios are adjusted continuously — pushing toward the drawings' colour palette or pulling toward photographic realism, or finding the uncanny space between. A lower CFG scale gives the model room to drift and produce unexpected combinations; the ambiguity in the 0wl language gives the model interpretive space. The algorithm reconfigures impossible childhood scenes into new visual forms, exposing how perception was shaped by contradiction, how memory is not stored but generated.</p>
+    <p>This work raises the central ethical question of the practice: what does it mean to feed biographical material into a machine, and who is responsible for what the machine produces? The use of childhood imagery — particularly imagery formed during wartime — requires care. I have chosen not to exhibit this work publicly in its current form, recognising that such material can be mobilised to evoke pity or political sentiment without generating genuine insight. The work continues as research: its findings feed back into 0wl and the broader methodology without becoming spectacle.</p>
 
     <hr class="divider">
 
@@ -123,7 +87,7 @@
   </div>
 
   <div class="placeholder-gallery fade-in">
-    [ image gallery — add childhood drawings and generated images to images/performance-12/ and replace this block ]
+    [ image gallery — add images to images/performance-12/ and replace this block ]
   </div>
 
   <div class="placeholder-video fade-in">
