@@ -3,7 +3,7 @@
    Fonts: EB Garamond (body) + DM Mono (labels/nav/code)
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Mono:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;1,300;1,400&family=JetBrains+Mono:wght@300;400;500&display=swap');
 
 /* ── Reset ── */
 *, *::before, *::after {
@@ -14,15 +14,15 @@
 
 /* ── Design tokens ── */
 :root {
-  --bg:           #0c0c0c;
-  --bg-raised:    #141414;
-  --text:         #e0ddd4;
-  --text-bright:  #f2efe6;
-  --text-muted:   #9e9b91;
-  --text-dim:     #636159;
-  --accent:       #33ff33;
-  --accent-light: #66ff66;
-  --line:         #1a2e1a;
+  --bg:           #0b0d0c;
+  --bg-raised:    #131613;
+  --text:         #ece6da;
+  --text-bright:  #f2ede3;
+  --text-muted:   #a7a196;
+  --text-dim:     #7d786e;
+  --accent:       #79b793;
+  --accent-light: #93c7a8;
+  --line:         #2a3a31;
 }
 
 /* ── Base ── */
@@ -31,7 +31,7 @@ html { scroll-behavior: smooth; }
 body {
   background: var(--bg);
   color: var(--text);
-  font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
+  font-family: 'Spectral', Georgia, 'Times New Roman', serif;
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
 }
@@ -63,14 +63,14 @@ img {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(10, 10, 8, 0.85);
+  background: rgba(9, 11, 10, 0.85);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--line);
 }
 
 .site-nav .site-name {
-  font-family: 'DM Mono', monospace;
+  font-family: 'JetBrains Mono', monospace;
   font-size: 13px;
   font-weight: 400;
   color: var(--text-bright);
@@ -87,7 +87,7 @@ img {
 
 .nav-links a {
   position: relative;
-  font-family: 'DM Mono', monospace;
+  font-family: 'JetBrains Mono', monospace;
   font-size: 11px;
   font-weight: 300;
   letter-spacing: 0.08em;
@@ -123,7 +123,7 @@ img {
 /* ── Typography ── */
 h1 {
   font-size: 32px;
-  font-weight: 400;
+  font-weight: 300;
   color: var(--text-bright);
   line-height: 1.3;
   letter-spacing: -0.01em;
@@ -140,7 +140,7 @@ h2 {
 
 h3 {
   font-size: 17px;
-  font-family: 'DM Mono', monospace;
+  font-family: 'JetBrains Mono', monospace;
   font-weight: 400;
   color: var(--accent);
   letter-spacing: 0.06em;
@@ -174,7 +174,7 @@ p:last-child { margin-bottom: 0; }
 }
 
 .label {
-  font-family: 'DM Mono', monospace;
+  font-family: 'JetBrains Mono', monospace;
   font-size: 11px;
   font-weight: 400;
   color: var(--accent);
@@ -229,7 +229,7 @@ p:last-child { margin-bottom: 0; }
 }
 
 .work-card-number {
-  font-family: 'DM Mono', monospace;
+  font-family: 'JetBrains Mono', monospace;
   font-size: 10px;
   color: var(--accent);
   letter-spacing: 0.1em;
@@ -245,7 +245,7 @@ p:last-child { margin-bottom: 0; }
 }
 
 .work-card-meta {
-  font-family: 'DM Mono', monospace;
+  font-family: 'JetBrains Mono', monospace;
   font-size: 11px;
   color: var(--text-dim);
   letter-spacing: 0.04em;
@@ -297,7 +297,7 @@ p:last-child { margin-bottom: 0; }
 .lightbox-close {
   position: absolute;
   top: 20px; right: 28px;
-  font-family: 'DM Mono', monospace;
+  font-family: 'JetBrains Mono', monospace;
   font-size: 13px;
   color: var(--text-muted);
   cursor: pointer;
@@ -338,7 +338,7 @@ blockquote {
 blockquote cite {
   display: block;
   margin-top: 8px;
-  font-family: 'DM Mono', monospace;
+  font-family: 'JetBrains Mono', monospace;
   font-size: 11px;
   font-style: normal;
   letter-spacing: 0.04em;
@@ -349,7 +349,7 @@ blockquote cite {
   border-top: 1px solid var(--line);
   padding: 32px;
   text-align: center;
-  font-family: 'DM Mono', monospace;
+  font-family: 'JetBrains Mono', monospace;
   font-size: 11px;
   color: var(--text-dim);
   letter-spacing: 0.04em;
